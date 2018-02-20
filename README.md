@@ -15,7 +15,7 @@
 
 
 ## Peticiones FETCH y MutationObserver
-1. Con el método **fecth** de javascript podemos acceder al json alojado en el directorio, eso nos devuelve el objeto **JSON** que posteriormente convertiremos a objeto manipulable con Javascript.
+1. El proceso se realiza desde el archivo **busqueda.js**. Con el método **fecth** de javascript podemos acceder al json alojado en el directorio, eso nos devuelve el objeto **JSON** que posteriormente convertiremos a objeto manipulable con Javascript.
 <br> 1.1 Además las peticiones se realizan con una la terminación ,proporcionada por JSON server, propiedad_a_buscar ***_like***. Para poder acceder a la propiedad, en este caso se ha realizado así: **/productos?id_like" + entradaDeUsuario**.
 
 2. Una vez tenemos el **array** con los resultados, lo recorremos mediante un **for** para generar las cajas de productos. En caso de no tener ninguna coincidencia dentro pues se mostraria un mensaje con la cadena de **"Ninguna coincidencia"**.
