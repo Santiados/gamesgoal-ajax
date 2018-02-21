@@ -63,6 +63,9 @@ Efectos keyframes
   100% {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1); } }
+.redirigir {
+  cursor: pointer; }
+
 article > * {
   -webkit-animation-duration: 2s;
   animation-duration: 2s;
@@ -146,9 +149,9 @@ div.header {
   display: inline-flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1% 0; }
+  padding: 5px 0; }
   div.header > div {
-    margin: 10px 0; }
+    margin: 5px 0; }
   div.header div.logo {
     -webkit-transition: all 600ms cubic-bezier(0.505, 0.1, 0.33, 1.265);
     -o-transition: all 600ms cubic-bezier(0.505, 0.1, 0.33, 1.265);
@@ -502,19 +505,6 @@ Footer
 */
 footer {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   background: rgba(0, 0, 0, 0.9);
   border: 0px solid;
   -webkit-border-radius: 1px;
@@ -522,12 +512,8 @@ footer {
   border-top: 6px solid #314EA0;
   -webkit-box-shadow: 0px 6px 3px 0px #252424;
   box-shadow: 0px 6px 3px 0px #252424;
-  position: relative;
-  -webkit-flex-basis: unset;
-  -ms-flex-preferred-size: unset;
-  flex-basis: unset;
-  padding: 100px 100px;
-  margin: 0px 0; }
+  padding: 100px;
+  font-family: 'Roboto Condensed', sans-serif; }
   footer div.footer-pad {
     margin: 0px 5%; }
   footer div.secciones {
@@ -548,10 +534,12 @@ footer {
     -webkit-justify-content: space-around;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    color: white; }
+    color: white;
+    flex-wrap: wrap; }
     footer div.reglas a {
       text-decoration: none;
-      color: white; }
+      color: white;
+      margin: 2pc 0; }
       footer div.reglas a:hover {
         text-decoration: underline; }
       footer div.reglas a:nth-of-type(4) {
@@ -559,7 +547,7 @@ footer {
   footer div.subir {
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
-    bottom: 20%;
+    top: 1pc;
     right: 1%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -574,7 +562,7 @@ footer {
     -webkit-transition: all 500ms ease;
     -o-transition: all 500ms ease;
     transition: all 500ms ease;
-    padding: 1%; }
+    padding: 2px 1pc; }
     footer div.subir img {
       -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
@@ -588,7 +576,7 @@ footer {
       background: black; }
   footer div.logo {
     position: absolute;
-    bottom: 0;
+    bottom: 1pc;
     right: 5%; }
     footer div.logo a {
       font-family: 'Bangers', cursive;

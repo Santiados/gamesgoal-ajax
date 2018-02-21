@@ -19,6 +19,9 @@ div.carta {
 header *{
 	width: 100%;
 }
+header h1 {
+	font-family: 'Bangers', cursive;
+}
 
 div.carta > div header {
 	display: flex;

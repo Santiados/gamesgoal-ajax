@@ -57,8 +57,11 @@
 	    		y--;
 	    	}
 	    });
-		
-		
+
+	    // Ocultar el div cookies 
+	    $('div.condiciones .cerrarCookies').click(function(event) {
+	    	$('div.condiciones').fadeOut('fast');
+	    });
 
 		
 		    
@@ -66,13 +69,12 @@
 		$(document).scroll(function(event) {
 			// Efectos en el header durante el scroll
 			var pixelesNavegador = document.body.scrollTop || document.documentElement.scrollTop;
-			var logo = $('div.header ');
-			if (pixelesNavegador < 100 ) {
-				logo.css('padding', '1% 0');
-			}else {
-				logo.css('padding', '0 0');
-			}
 			var header = $('div.header');
+			if (pixelesNavegador < 100 ) {
+				header.css('padding', '5px 0');
+			}else {
+				header.css('padding', '0 0');
+			}
 			if(pixelesNavegador > 2000) {
 				header.css('top', '-500px');
 			}else {

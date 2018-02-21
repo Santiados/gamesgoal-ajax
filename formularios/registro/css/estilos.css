@@ -15,7 +15,9 @@ div.contReg {
 	min-height: 700px;
 }
 
-
+div.contReg h1 {
+	font-family: 'Bangers', cursive;
+}
 
 form input{
 	border:0px;
