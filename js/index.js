@@ -139,3 +139,11 @@
 		var targetNode = document.getElementsByClassName('objetos')[0];
 		observer.observe(targetNode, observerConfig);
 		
+
+		$('.crearProducto').click(function(event) {
+			var prod = $(this).parent()[0].parentElement, objProd = {};
+			console.log(prod);
+			// objProd.img = 
+			setCookie('prod',prod);
+			console.log(getCookie('prod'))
+		});

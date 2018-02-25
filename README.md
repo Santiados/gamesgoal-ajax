@@ -12,6 +12,8 @@
 
 * Se ha descargadado con anterioridad el paquete de **JSON SERVER**.
 
+* Lo que se puede buscar es : **Modelo  T,V,W,X,Y,Z**
+
 
 
 ## Peticiones FETCH y MutationObserver

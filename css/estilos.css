@@ -108,6 +108,12 @@ div.menu {
         border: 0px solid;
         width: 50%;
         height: 40px; }
+  div.menu:before {
+    content: '';
+    width: 100%;
+    height: 5px;
+    left: 0;
+    background: #FFC600; }
 
 div.objetos {
   display: flex;
@@ -138,7 +144,7 @@ Header
 */
 div.header {
   position: fixed;
-  top: 5px;
+  top: 1px;
   background: linear-gradient(to right, #1D2C46, #243b55);
   z-index: 1000000;
   font-family: 'Roboto Condensed', sans-serif;
@@ -455,26 +461,56 @@ section {
     section article div.contenedorBaraja {
       border-radius: 5px; }
       section article div.contenedorBaraja > div {
-        margin: 5% auto; }
+        margin: 2pc auto; }
         section article div.contenedorBaraja > div div.row {
           display: flex;
           justify-content: center; }
-    section article div.card {
+    section article div.carta {
       transition: all 500ms ease;
       position: relative;
-      padding: 0;
-      margin: 2% 1%;
-      padding: 10px 5px; }
-      section article div.card img {
-        width: 100%; }
-      section article div.card > div {
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 25%; }
+      section article div.carta img {
+        width: 100%;
+        outline: 0px solid #1DE708;
+        border: 1px solid #1DE708;
+        transition: all 200ms ease; }
+      section article div.carta > div {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        bottom: 0;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        transition: all 1000ms cubic-bezier(0, 1.29, 0, 0.92);
+        width: 100%;
         color: white; }
-        section article div.card > div h3 {
+        section article div.carta > div h3 {
           color: black; }
-        section article div.card > div span {
-          margin: 5px 0; }
-      section article div.card:hover {
-        box-shadow: 0px 1px 5px 3px grey; }
+        section article div.carta > div span:nth-of-type(1) {
+          font-size: 200%;
+          text-shadow: 1px 1px grey; }
+        section article div.carta > div span:not(:nth-of-type(1)) {
+          margin: 5px 0;
+          font-size: 100%;
+          color: white;
+          background: #4D90A6;
+          padding: 5px;
+          border-radius: 2px; }
+        section article div.carta > div span {
+          margin: 0px 5px; }
+      section article div.carta:hover img {
+        outline: 3px solid #1DE708; }
+      section article div.carta:hover > div {
+        opacity: 1;
+        transform: translate(0, 75%); }
     section article div.comentarios {
       display: inline-flex;
       flex-direction: column;
@@ -496,6 +532,7 @@ section {
       flex-wrap: wrap;
       justify-content: center; }
       section article div.redes button {
+        border: 4px solid;
         margin: 20px 2%;
         padding: 20px 50px;
         max-width: 200px; }
@@ -519,13 +556,16 @@ footer {
   footer div.secciones {
     display: flex;
     justify-content: space-between;
-    color: #409EC1;
-    font-size: 100%; }
+    font-size: 100%;
+    color: white; }
     footer div.secciones h2 {
-      color: white; }
-    footer div.secciones ul li a {
-      display: block;
-      padding: 10% 0px; }
+      color: #444EB3; }
+    footer div.secciones a:hover {
+      color: red; }
+    footer div.secciones ul li {
+      margin: 10% 0; }
+      footer div.secciones ul li:hover {
+        color: #2878C9; }
   footer div.reglas {
     display: -webkit-box;
     display: -webkit-flex;
@@ -539,7 +579,7 @@ footer {
     footer div.reglas a {
       text-decoration: none;
       color: white;
-      margin: 2pc 0; }
+      margin: 2pc 1pc; }
       footer div.reglas a:hover {
         text-decoration: underline; }
       footer div.reglas a:nth-of-type(4) {
@@ -588,7 +628,7 @@ footer {
 /*
 Reglas media
 */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 780px) {
   div.carrito * {
     display: none;
     visibility: hidden; }
@@ -605,8 +645,18 @@ Reglas media
   section {
     margin-top: 15pc; }
 
-  div.titulo * {
-    font-size: 80%; }
+  div.titulo h2 {
+    width: 100%; }
+
+  section article div.carta {
+    width: 50%;
+    margin: 3pc 0; }
+
+  section article div.carta div {
+    opacity: 1;
+    transform: translate(0, 75%);
+    flex-direction: row;
+    flex-wrap: wrap; }
 
   div.comentario {
     width: 500%; }
@@ -626,5 +676,23 @@ Reglas media
 
   div.objetos > div.producto {
     width: 1000%; } }
+@media screen and (max-width: 550px) {
+  section article div.carta {
+    width: 50%;
+    margin: 3pc 0;
+    font-size: 90%; }
+
+  section article div.titulo h1 {
+    font-size: 80%; }
+
+  section article div.titulo p {
+    font-size: 80%; }
+
+  div.titulo h2 {
+    width: 100%;
+    font-size: 90%; }
+
+  seccion article div.titulo p {
+    font-size: 80%; } }
 
 /*# sourceMappingURL=estilos.css.map */

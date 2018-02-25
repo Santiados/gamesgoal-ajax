@@ -34,18 +34,18 @@ $('.formReg').submit(function(evt){
 	try{//Por si surge algun error inesperado
 		evt.preventDefault(); //Primero evitamos el submit para poder trabajar bien
 		var user = registro();
-		var name = document.getElementsByClassName('name')[0].value.trim(); //Recuperamos el nombre y el apellido
+		var correo = document.getElementsByClassName('email')[0].value;  //Recuperamos el nombre y el apellido
 		var password = sha256(document.getElementsByClassName('pass')[0].value.trim()); //Recuperamos el valor de la contraseña
 		var pass2 = sha256(document.getElementsByClassName('pass2')[0].value.trim()); //El del validador
-		if(getCookie(name)!=null){ //Miramos si el usuario ya esta elegido
+		if(getCookie(correo)!=null){ //Miramos si el usuario ya esta elegido
 			alert('El nombre de usuario ya esta elegido');
 		}else{
 			if(password.indexOf('?')!=-1){ //Para que no haya '?', ya que es el separador en la cookie
 				document.getElementsByClassName('alerta')[0].innerHTML = 'Caracter "?" no admitido';
 		}
 			else if(password==pass2 && valid){ //Si las contraseñas coinciden y son validas, accede
-			setCookie(name,user); //Se guarda la cookie
-			setCookie('user',name); //Y creamos una cookie temporal para luego
+			setCookie(correo,user); //Se guarda la cookie
+			setCookie('user',correo); //Y creamos una cookie temporal para luego
 			alert('Usuario creado correctamente');
 			$(this).unbind('submit').submit(); //Y se hace el submit
 		}else{
@@ -140,12 +140,14 @@ $('.check').on('click',function(){
 
 function logged(){
 	if(getCookie('user')!=null){
-		$('.loggin p').text(getCookie('user'));
+		var nombre = getCookie('user');
+		var usuario = getCookie(nombre).split('?')[0].split(':')[1];
+		$('.loggin p').text(usuario);
 		$('div.condiciones').hide();
 	}
 }
 
-$('.loggin').on('click', function(){
+$('.loggin, .carrito').on('click', function(){
 	if(getCookie('user')!=null){
 		location.href='formularios/logged/index.html';
 	}else{

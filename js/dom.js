@@ -36,8 +36,9 @@ $('.enviarComentario').click(function(event) {
 	if(getCookie('user')!=null && cajaTexto!=''){
 		var mensaje = document.getElementsByTagName('textarea')[0].value;
 		var nombre = getCookie('user');
+		var usuario = getCookie(nombre).split('?')[0].split(':')[1];
 		var fecha = new Date().toLocaleString();
-		var user = new Usuario(fecha,nombre,mensaje);
+		var user = new Usuario(fecha,usuario,mensaje);
 		user.comenta();
 	}else if(cajaTexto==''){
 		$('.modal-body').text('Deberias rellenar algo');

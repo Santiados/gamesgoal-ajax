@@ -155,6 +155,14 @@
 				
 			}
 
+			&:before {
+				content: '';
+				width: 100%;
+				height: 5px;
+				left: 0;
+				background: $colorTer;
+			}
+
 
 		}
 
@@ -199,7 +207,7 @@
 
 		div.header {
 			position: fixed;
-			top: 5px;
+			top: 1px;
 			background: $colorPri;
 			z-index: 1000000;
 			font-family: 'Roboto Condensed', sans-serif;
@@ -451,7 +459,7 @@ section {
 					padding: 20px 60px ;
 					> div {
 						position: relative;
-						margin: 0 50px;
+						margin:0 50px;
 						-webkit-box-shadow: 0px 6px 3px 0px #252424;
 						box-shadow: 0px 6px 3px 0px #252424;
 						-webkit-transition: all 500ms ease;
@@ -627,34 +635,69 @@ section {
 		div.contenedorBaraja {
 			border-radius: 5px;
 			> div {
-				margin: 5% auto;
+				margin: 2pc auto;
 				div.row {
 					display: flex;
 					justify-content: center;
 				}
 			}
 		}
-		div.card {
+		div.carta {
 			transition: all 500ms ease;
 			position: relative;
-			padding: 0;
-			margin: 2% 1%;
-			padding: 10px 5px;
+			padding: 10px 10px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 25%;
 			img {
 				width: 100%;
+				outline:0px solid $colorSec;
+				border:1px solid $colorSec;
+				transition: all 200ms ease;
 			}
 			> div {
-				color: white;
+				position: absolute;
+				display: flex;
+				align-items: center;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				bottom: 0;
+				margin:0 auto;
+				left: 0;
+				right: 0;
+				opacity: 0;
+				transition: all 1000ms cubic-bezier(0.000, 1.290, 0.000, 0.920);
+				width: 100%;
+				color:white;
 				h3 {
 					color: black;
 				}
-				span {
+				span:nth-of-type(1){
+					font-size: 200%;
+					text-shadow: 1px 1px grey;
+				}
+				span:not(:nth-of-type(1)) {
 					margin: 5px 0;
+					font-size: 100%;
+					color:white;
+					background: #4D90A6;
+					padding: 5px;
+					border-radius: 2px;
+				}
+				span {
+					margin:0px 5px;
 				}
 			}
 
 			&:hover {
-				box-shadow: 0px 1px 5px 3px grey;
+				img {
+					outline:3px solid $colorSec;
+				}
+				> div {
+					opacity: 1;
+					transform: translate(0,75%);
+				}
 			}
 		}
 
@@ -688,6 +731,7 @@ section {
     		flex-wrap: wrap;
     		justify-content: center;
     		button{
+    			border:4px solid;
     			margin: 20px 2%;
     			padding: 20px 50px;
     			max-width: 200px;
@@ -719,16 +763,21 @@ footer {
 	div.secciones {
 		display: flex;
 		justify-content:space-between;
-		color:	#409EC1;
 		font-size: 100%;
+		color:white;
 		h2 {
-			color: white;
+			color: #444EB3;
 		}
 
-		ul li {
-			a {
-				display: block;
-				padding: 10% 0px;
+		a:hover {
+			color: red;
+		}
+		ul {
+			li {
+				margin: 10% 0;
+				&:hover {
+					color:#2878C9;
+				}
 			}
 		}
 	}
@@ -746,7 +795,7 @@ footer {
 		a {
 			text-decoration: none;
 			color:white;
-			margin: 2pc 0;
+			margin: 2pc 1pc;
 			&:hover {
 				text-decoration:underline;
 			}
@@ -813,7 +862,7 @@ footer {
 Reglas media
 */
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 780px) {
 	div.carrito *{
 		display: none;
 		visibility: hidden;
@@ -831,8 +880,21 @@ Reglas media
 		margin-top: 15pc;
 	}
 
-	div.titulo * {
-		font-size: 80%;
+	
+	div.titulo h2 {
+		width: 100%;
+	}
+
+	section article div.carta {
+		width: 50%;
+		margin:3pc 0;
+	}
+
+	section article div.carta div {
+		opacity: 1;
+		transform: translate(0,75%);
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 	div.comentario {
 		width: 500%;
@@ -855,6 +917,32 @@ Reglas media
 
 	div.objetos > div.producto  {
 		width: 1000%;
+	}
+
+}
+
+@media screen and (max-width: 550px) {
+	section article div.carta {
+		width: 50%;
+		margin:3pc 0;
+		font-size: 90%;
+	}
+
+	section article div.titulo h1 {
+		font-size: 80%;
+	}
+
+	section article div.titulo p {
+		font-size: 80%;
+	}
+
+	div.titulo h2 {
+		width: 100%;
+		font-size: 90%;
+	}
+
+	seccion article div.titulo p {
+		font-size: 80%;
 	}
 
 }
